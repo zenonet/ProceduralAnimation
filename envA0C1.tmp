@@ -23,6 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92004, 0.636779, -5.26112)
 
 [node name="Robot" parent="." instance=ExtResource("1_lwbru")]
 transform = Transform3D(0.60116, 0, 0.799129, 0, 1, 0, -0.799129, 0, 0.60116, 0.345712, 2.83782, 0)
+speed = null
 
 [node name="Camera3D" type="Camera3D" parent="Robot"]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 0.976179, 0.216968, 0, -0.216968, 0.976179, -0.0917054, 2.27391, 5.7533)
+transform = Transform3D(-0.0586269, -0.472966, 0.879128, 1.86265e-09, 0.880643, 0.473781, -0.99828, 0.0277763, -0.0516294, 6.61919, 2.20408, -0.106563)
