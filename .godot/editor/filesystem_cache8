@@ -1,0 +1,7 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1721736503
+icon.svg::CompressedTexture2D::6527639442138776531::1721735338::1721735343::1::::<><>::
+env.tscn::PackedScene::2706677609714726700::1721736215::0::1::::<><>::
+ik_manager.gd::GDScript::-1::1721736503::0::1::::<>SkeletonIK3D<>::
+robot.tscn::PackedScene::8059047008689700453::1721736503::0::1::::<><>::uid://br2ptv3q5q127::::res://Robot.glb<>res://ik_manager.gd
+Robot.glb::PackedScene::3636315056887548926::1721736597::1721736600::1::::<><>::
