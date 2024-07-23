@@ -29,7 +29,7 @@ target = Transform3D(1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0)
 target_node = NodePath("../../FL_Target")
 script = ExtResource("2_7lkxy")
 target_obj = NodePath("../../FL_Target")
-raycast = NodePath("../../../Raycasts/Node3D/FL_Raycast")
+raycast = NodePath("../../../Raycasts/FL_Raycast")
 
 [node name="FR_Leg" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="2" node_paths=PackedStringArray("target_obj", "raycast")]
 process_priority = 1
@@ -39,7 +39,7 @@ target = Transform3D(1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0)
 target_node = NodePath("../../FR_Target")
 script = ExtResource("2_7lkxy")
 target_obj = NodePath("../../FR_Target")
-raycast = NodePath("../../../Raycasts/Node3D/FR_Raycast")
+raycast = NodePath("../../../Raycasts/FR_Raycast")
 
 [node name="BL_Leg" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="3" node_paths=PackedStringArray("target_obj", "raycast")]
 process_priority = 1
@@ -49,7 +49,7 @@ target = Transform3D(1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0)
 target_node = NodePath("../../BL_Target")
 script = ExtResource("2_7lkxy")
 target_obj = NodePath("../../BL_Target")
-raycast = NodePath("../../../Raycasts/Node3D/BL_Raycast")
+raycast = NodePath("../../../Raycasts/BL_Raycast")
 
 [node name="BR_Leg" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="4" node_paths=PackedStringArray("target_obj", "raycast")]
 process_priority = 1
@@ -59,7 +59,7 @@ target = Transform3D(1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0)
 target_node = NodePath("../../BR_Target")
 script = ExtResource("2_7lkxy")
 target_obj = NodePath("../../BR_Target")
-raycast = NodePath("../../../Raycasts/Node3D/BR_Raycast")
+raycast = NodePath("../../../Raycasts/BR_Raycast")
 
 [node name="FL_Target" type="Marker3D" parent="Armature" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.28409, -2.49922, -1.28428)
@@ -79,24 +79,30 @@ top_level = true
 
 [node name="Raycasts" type="Node3D" parent="." index="1"]
 
-[node name="Node3D" type="Node3D" parent="Raycasts" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.88191)
-
-[node name="FR_Raycast" type="RayCast3D" parent="Raycasts/Node3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44008, -0.874359, -0.812488)
+[node name="FR_Raycast" type="RayCast3D" parent="Raycasts" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69043, -0.874359, -0.812488)
 target_position = Vector3(0, -5, 0)
 
-[node name="BR_Raycast" type="RayCast3D" parent="Raycasts/Node3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44008, -0.874359, 0.926283)
+[node name="CSGBox3D" type="CSGBox3D" parent="Raycasts/FR_Raycast" index="0"]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
+
+[node name="BR_Raycast" type="RayCast3D" parent="Raycasts" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69043, -0.874359, 1.40468)
 target_position = Vector3(0, -5, 0)
 
-[node name="FL_Raycast" type="RayCast3D" parent="Raycasts/Node3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53715, -0.874359, -0.812488)
+[node name="CSGBox3D2" type="CSGBox3D" parent="Raycasts/BR_Raycast" index="0"]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
+
+[node name="FL_Raycast" type="RayCast3D" parent="Raycasts" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77726, -0.874359, -0.812488)
 target_position = Vector3(0, -5, 0)
 
-[node name="BL_Raycast" type="RayCast3D" parent="Raycasts/Node3D" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53715, -0.874359, 0.926283)
+[node name="CSGBox3D3" type="CSGBox3D" parent="Raycasts/FL_Raycast" index="0"]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
+
+[node name="BL_Raycast" type="RayCast3D" parent="Raycasts" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77726, -0.874359, 1.40468)
 target_position = Vector3(0, -5, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Raycasts/Node3D" index="4"]
-transform = Transform3D(0.69, 0, 0, 0, 0.69, 0, 0, 0, 0.69, 0, 2.36635, 0)
+[node name="CSGBox3D4" type="CSGBox3D" parent="Raycasts/BL_Raycast" index="0"]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)

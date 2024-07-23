@@ -1,16 +1,26 @@
 extends Node3D
 
-@export var speed = 8
+@export var speed = 12
+@export var rotation_speed = 45
 @export var body_height = 3
+var legs_in_air = 0
+var velocity:float = 0
 
 func _process(delta):
+	
+	var rot:float = Input.get_axis("rotate_right", "rotate_left")
+	rotation_degrees.y += rot*rotation_speed*delta
+	
 	
 	var movement = Vector2(
 		Input.get_axis("backward", "forward"),
 		Input.get_axis("right", "left"),
-	)
+	).normalized()
 	
-	$Raycasts.rotation_degrees.y = rad_to_deg(movement.angle())
+	velocity = movement.length()
+	print(velocity)
+	
+	$Raycasts.global_position = self.global_position - (transform.basis.x*movement.y + transform.basis.z*movement.x) * 2.5
 	
 	# movement
 	global_position += -transform.basis.z * speed * delta * movement.x
