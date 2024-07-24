@@ -9,7 +9,6 @@ var current_pos_on_ground:Vector3 = Vector3.ZERO
 
 
 @onready var robot = $"../../.."
-@onready var skeleton:Skeleton3D = $".."
 
 var leg_in_air:bool = false
 
@@ -27,7 +26,7 @@ func _process(delta):
 	# print("Distance: %d, below.z: %d, target.z: %d, raycast.z: %d" % [distance, below.z, target_obj.global_position.z, raycast.global_position.z])
 	
 	
-	var max_distance = max(2 * robot.vel, 0.5)
+	var max_distance = max(2 * robot.velocity, 0.5)
 	print("Max distance: %f; actual distance: %f" % [max_distance, distance])
 	if (distance > max_distance) && (robot.legs_in_air < 2 || false):
 		current_desired_target = below
@@ -43,17 +42,6 @@ func _process(delta):
 	if leg_in_air:
 		move_foot(delta)
 		
-		
-var leg_force:float = 2.44
-func _physics_process(delta):
-	# apply force to body
-	var anchor_pos = (skeleton.global_transform * skeleton.get_bone_global_pose(skeleton.find_bone(root_bone))).origin
-	var force_dir = anchor_pos - current_pos_on_ground
-	force_dir = Vector3.UP
-	
-	leg_force += (robot.global_body_height - robot.global_position.y)*0.1
-	robot.apply_central_force(force_dir*leg_force)
-
 var step_length:float = 0
 @onready var step_starting_point:Vector3 = target_obj.global_position 
 func move_foot(delta):
@@ -63,7 +51,7 @@ func move_foot(delta):
 	#print(progress)
 	target_obj.global_position = current_pos_on_ground
 	
-	target_obj.global_position.y += sin(progress*PI)*1.2*robot.vel
+	target_obj.global_position.y += sin(progress*PI)*1.2*robot.velocity
 	
 	if current_pos_on_ground.distance_to(current_desired_target) < 0.2:
 		robot.legs_in_air -= 1
