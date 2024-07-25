@@ -44,4 +44,4 @@ func _process(delta):
 
 func update_body_height(delta):
 	var avg_ground_pos = ($Armature/BL_Target.global_position.y + $Armature/BR_Target.global_position.y + $Armature/FL_Target.global_position.y + $Armature/FR_Target.global_position.y)/4
-	global_position.y = move_toward(global_position.y, avg_ground_pos + body_height, delta*10)
+	global_position.y = move_toward(global_position.y, avg_ground_pos + body_height, 0.02)

@@ -85,6 +85,7 @@ target_position = Vector3(0, -5, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Raycasts/FR_Raycast" index="0"]
 transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
+visible = false
 
 [node name="BR_Raycast" type="RayCast3D" parent="Raycasts" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69043, -0.874359, 1.40468)
@@ -92,6 +93,7 @@ target_position = Vector3(0, -5, 0)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Raycasts/BR_Raycast" index="0"]
 transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
+visible = false
 
 [node name="FL_Raycast" type="RayCast3D" parent="Raycasts" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77726, -0.874359, -0.812488)
@@ -99,6 +101,7 @@ target_position = Vector3(0, -5, 0)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Raycasts/FL_Raycast" index="0"]
 transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
+visible = false
 
 [node name="BL_Raycast" type="RayCast3D" parent="Raycasts" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77726, -0.874359, 1.40468)
@@ -106,3 +109,4 @@ target_position = Vector3(0, -5, 0)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Raycasts/BL_Raycast" index="0"]
 transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, 0, 0)
+visible = false
